@@ -6,7 +6,7 @@ INSTALL_PATH=$HOME/.isliranbusy
 mkdir -p "$INSTALL_PATH"
 
 # Extract binaries into install path
-tail -n +"$PAYLOAD_START" "$0" | tar x -C "$INSTALL_PATH"
+tail -n +"$PAYLOAD_START" "$0" | tar xz -C "$INSTALL_PATH"
 
 # Add crontab entry
 crontab -l | (cat ; echo "* * * * * $INSTALL_PATH/ping.sh") | crontab -
